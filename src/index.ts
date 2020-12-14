@@ -1,10 +1,11 @@
 import { MikroORM } from '@mikro-orm/core'
+import { __prod__ } from './constants'
 
 const main = async () => {
   const orm = await MikroORM.init({
     dbName: 'lireddit',
     type: 'postgresql',
-    debug: process.env.NODE_ENV !== 'production',
+    debug: !__prod__,
     // USERNAME and PASSWORD here if necessary
   })
 }

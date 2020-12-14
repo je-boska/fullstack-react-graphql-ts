@@ -10,11 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@mikro-orm/core");
+const constants_1 = require("./constants");
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     const orm = yield core_1.MikroORM.init({
         dbName: 'lireddit',
         type: 'postgresql',
-        debug: process.env.NODE_ENV !== 'production',
+        debug: !constants_1.__prod__,
     });
 });
 main();
