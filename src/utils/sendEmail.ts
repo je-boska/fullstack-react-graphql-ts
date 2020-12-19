@@ -8,6 +8,7 @@ export async function sendEmail(to: string, html: string) {
     host: 'smtp.ethereal.email',
     port: 587,
     secure: false,
+    // temporary test details from nodemailer
     auth: {
       user: 'mmgsuldq7ted6e2j@ethereal.email',
       pass: 'mn352ZermWUAPXVwdJ',
