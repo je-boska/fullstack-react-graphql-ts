@@ -10,8 +10,10 @@ export async function sendEmail(to: string, html: string) {
     secure: false,
     // temporary test details from nodemailer
     auth: {
-      user: 'mmgsuldq7ted6e2j@ethereal.email',
-      pass: 'mn352ZermWUAPXVwdJ',
+      // user: testAccount.user,
+      // pass: testAccount.pass,
+      user: 'miyhvqi2ofqqizt5@ethereal.email',
+      pass: 'f7PEuSVz1MmzdEVgpD',
     },
   })
 
