@@ -311,5 +311,5 @@ export class FakePosts1608988285859 implements MigrationInterface {
         `)
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {}
+  public async down(/* queryRunner: QueryRunner */): Promise<void> {}
 }

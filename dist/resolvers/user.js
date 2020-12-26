@@ -149,7 +149,7 @@ let UserResolver = class UserResolver {
                     };
                 }
             }
-            req.session.userId = user.id;
+            req.session.userId = user === null || user === void 0 ? void 0 : user.id;
             return { user };
         });
     }
