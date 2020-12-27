@@ -29,7 +29,9 @@ const main = async () => {
   })
 
   // RUN MIGRATIONS
-  // await conn.runMigrations()
+  // rerun
+  await conn.runMigrations()
+  // await Post.delete({})
 
   const app = express()
 
