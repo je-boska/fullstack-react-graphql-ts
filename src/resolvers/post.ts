@@ -170,8 +170,8 @@ export class PostResolver {
   }
 
   @Query(() => Post, { nullable: true })
-  post(@Arg('id') id: number): Promise<Post | undefined> {
-    return Post.findOne(id)
+  post(@Arg('id', () => Int) id: number): Promise<Post | undefined> {
+    return Post.findOne(id, { relations: ['creator'] })
   }
 
   @Mutation(() => Post)
@@ -202,9 +202,13 @@ export class PostResolver {
   }
 
   @Mutation(() => Boolean)
-  async deletePost(@Arg('id') id: number): Promise<Boolean> {
+  @UseMiddleware(isAuth)
+  async deletePost(
+    @Arg('id') id: number,
+    @Ctx() { req }: MyContext
+  ): Promise<Boolean> {
     // This is where we could try/catch, if we care to
-    await Post.delete(id)
+    await Post.delete({ id, creatorId: req.session.userId })
     return true
   }
 }
