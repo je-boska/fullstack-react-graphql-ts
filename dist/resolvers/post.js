@@ -152,6 +152,7 @@ let PostResolver = class PostResolver {
     }
     deletePost(id, { req }) {
         return __awaiter(this, void 0, void 0, function* () {
+            yield Updoot_1.Updoot.delete({ postId: id });
             yield Post_1.Post.delete({ id, creatorId: req.session.userId });
             return true;
         });
@@ -210,7 +211,7 @@ __decorate([
 __decorate([
     type_graphql_1.Mutation(() => Boolean),
     type_graphql_1.UseMiddleware(isAuth_1.isAuth),
-    __param(0, type_graphql_1.Arg('id')),
+    __param(0, type_graphql_1.Arg('id', () => type_graphql_1.Int)),
     __param(1, type_graphql_1.Ctx()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),
